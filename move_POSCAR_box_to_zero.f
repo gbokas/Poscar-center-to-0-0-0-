@@ -55,7 +55,7 @@ c	write(*,*) xmin, ymin, zmin
 	write(*,*) "0.000 0.000", zmax
 	write(*,*) nAl, nSm
 	write(*,*) "Selective Dynamics"
-	write(*,*) "Direct"
+	write(*,*) "Cartesian"
 	do i=1,n
 	  write(*,*) x(i), y(i), z(i), "T T T"
 	enddo
