@@ -6,18 +6,16 @@
 	double precision xx, xy, xz, yy, yx, yz, zx, zy, zz
 	integer nAl, nSm
 	character*2 type(1000)
+	read(*,*) n
 	read(*,*)
-	read(*,*)
-	read(*,*) xx, xy, xz
-	read(*,*) yx, yy, yz
-	read(*,*) zx, zy, zz
-	read(*,*) nAl, nSm
-	read(*,*)
-	read(*,*)
-	n=nAl+nSm
+	nAl=0
+	nSm=0
 	do i=1,n
-	  read(*,*) x(i), y(i), z(i)
+	  read(*,*) type(i), x(i), y(i), z(i)
+	  if ( type(i).eq."Al") nAl=nAl+1
+	  if ( type(i).eq."Sm") nSm=nSm+1
 	enddo
+c*******Calculate number of Al and Sm in order to put nAl and nSm at the POSCAR file
 	xmin=x(1)
 	ymin=y(1)
 	zmin=z(1)
@@ -56,9 +54,19 @@ c	write(*,*) xmin, ymin, zmin
 	write(*,*) nAl, nSm
 	write(*,"(A)") "Selective Dynamics"
 	write(*,"(A)") "Cartesian"
+c*******Sort Atoms.... At the beggining we have all the Al and at the end the Sm
 	do i=1,n
-	  write(*,*) x(i), y(i), z(i), "T T T"
+	  if ( type(i).eq."Al") then
+	    write(*,*) x(i), y(i), z(i), "T T T"
+	  endif
 	enddo
+	do i=1,n
+	  if ( type(i).eq."Sm") then
+	    write(*,*) x(i), y(i), z(i), "T T T"
+	  endif
+	enddo
+c*******Sort Atoms.... At the beggining we have all the Al and at the end the Sm
+
 	stop
 	end
 	  
