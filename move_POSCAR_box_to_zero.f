@@ -1,5 +1,4 @@
 	program transform
-c	allagi
 	implicit none
 	integer i,j,k,n, itype(1000), id(1000)
 	double precision x(1000), y(1000), z(1000)
