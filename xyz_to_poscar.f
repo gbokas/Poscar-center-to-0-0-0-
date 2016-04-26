@@ -8,6 +8,7 @@
 	character*2 type(1000)
 	read(*,*) n
 	read(*,*)
+c****** This is for a binary AlSm alloy. If you want more types of atoms you have to add more counters.ó
 	nAl=0
 	nSm=0
 	do i=1,n
